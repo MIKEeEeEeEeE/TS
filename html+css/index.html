@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Page with Pop-Up Menu</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4e1c1; /* Sand color */
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Main Content */
+    .content {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    /* Pop-Up Menu Styling */
+    .popup-menu {
+      position: fixed;
+      top: 0;
+      right: -250px; /* Initially hidden off-screen */
+      width: 250px;
+      height: 100%;
+      background-color: #0077cc; /* Blue color */
+      color: #fff;
+      transition: right 0.3s ease;
+      padding: 20px;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup-menu.active {
+      right: 0; /* Slide in the menu */
+    }
+
+    .popup-menu h2 {
+      margin-bottom: 20px;
+    }
+
+    .popup-menu ul {
+      list-style-type: none;
+    }
+
+    .popup-menu li {
+      margin-bottom: 15px;
+    }
+
+    /* Toggle Button */
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-toggle:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Welcome to My Simple Page</h1>
+    <p>This is a page with a blue pop-up menu on the right.</p>
+  </div>
+
+  <!-- Pop-Up Menu -->
+  <div class="popup-menu" id="popupMenu">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#" style="color: #fff;">Home</a></li>
+      <li><a href="#" style="color: #fff;">About</a></li>
+      <li><a href="#" style="color: #fff;">Services</a></li>
+      <li><a href="#" style="color: #fff;">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Toggle Button -->
+  <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("popupMenu");
+      menu.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
